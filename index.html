@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1a0a2e" />
+  <title>Happy Birthday My Baby 💕</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Cormorant Garamond (romantic display) + Jost (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--               PARTICLE CANVAS                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--               INTRO SCREEN                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="introScreen" class="intro-screen">
+    <div class="intro-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="intro-content">
+      <div class="intro-crown">👑</div>
+      <div class="intro-date" id="introDate"></div>
+      <h1 class="intro-title">
+        <span class="intro-title-line1">Happy</span>
+        <span class="intro-title-line2">Birthday</span>
+      </h1>
+      <div class="intro-heart-pulse">❤️</div>
+      <p class="intro-sub">A special message is loading for you...</p>
+      <div class="intro-loader">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-text" id="loaderText">Preparing something beautiful...</span>
+      </div>
+    </div>
+    <div class="floating-intro-hearts" id="floatingIntroHearts"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!--               MAIN SLIDESHOW                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="mainPresentation" class="presentation hidden">
+
+    <!-- AUDIO TOGGLE -->
+    <button class="audio-btn" id="audioBtn" aria-label="Toggle music">
+      <span class="audio-icon" id="audioIcon">🎵</span>
+      <span class="audio-label">Music</span>
+    </button>
+
+    <!-- SLIDE COUNTER -->
+    <div class="slide-counter" id="slideCounter">
+      <span id="currentSlideNum">1</span>
+      <span class="counter-divider">/</span>
+      <span id="totalSlideNum">11</span>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+
+    <!-- ─────── SLIDE CONTAINER ─────── -->
+    <div class="slides-wrapper" id="slidesWrapper">
+
+      <!-- ══════ SLIDE 1: Happy Birthday ══════ -->
+      <div class="slide slide-1 active" data-slide="1">
+        <div class="slide-bg-gradient slide-bg-1"></div>
+        <div class="floating-hearts-layer" id="heartsLayer1"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float big-emoji">🎂</div>
+          <h2 class="slide-title typing-text" data-text="Happy Birthday My Baby 🫂❤️"></h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <p class="slide-body fade-in-up delay-1">Today is all about celebrating</p>
+          <p class="slide-body fade-in-up delay-2">the amazing person you are.</p>
+          <div class="sparkle-trail" id="sparkleTrail1"></div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 2: Looking Back ══════ -->
+      <div class="slide slide-2" data-slide="2">
+        <div class="slide-bg-gradient slide-bg-2"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">💭</div>
+          <h2 class="slide-heading fade-in-up">Looking Back</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="text-lines">
+            <p class="slide-line fade-in-up delay-1">"I know this last year wasn't the best..."</p>
+            <p class="slide-line fade-in-up delay-2">"Both in school and at home."</p>
+            <p class="slide-line fade-in-up delay-3">"But despite everything, you stayed strong."</p>
+            <p class="slide-line highlight fade-in-up delay-4">"And I'm <em>proud</em> of you."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 3: New Chapter ══════ -->
+      <div class="slide slide-3" data-slide="3">
+        <div class="slide-bg-gradient slide-bg-3"></div>
+        <div class="petals-layer" id="petalsLayer"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">🌸</div>
+          <h2 class="slide-heading fade-in-up">A New Chapter</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="text-lines">
+            <p class="slide-line fade-in-up delay-1">"As you clock this new age..."</p>
+            <p class="slide-line fade-in-up delay-2">"I wish you nothing but joy, peace,</p>
+            <p class="slide-line highlight fade-in-up delay-3">success, and happiness."</p>
+            <p class="slide-line fade-in-up delay-4">"Because you deserve it so much."</p>
+          </div>
+          <div class="wish-bubbles fade-in-up delay-5">
+            <span class="wish-tag">☀️ Joy</span>
+            <span class="wish-tag">🕊️ Peace</span>
+            <span class="wish-tag">🏆 Success</span>
+            <span class="wish-tag">💛 Happiness</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 4: Final Year ══════ -->
+      <div class="slide slide-4" data-slide="4">
+        <div class="slide-bg-gradient slide-bg-4"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">🎓</div>
+          <h2 class="slide-heading fade-in-up">Final Year Journey</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="text-lines">
+            <p class="slide-line fade-in-up delay-1">"I wish you the very best session."</p>
+            <p class="slide-line fade-in-up delay-2">"As you step into your final year."</p>
+            <p class="slide-line fade-in-up delay-3">"May every effort be rewarded."</p>
+            <p class="slide-line highlight fade-in-up delay-4">"May every challenge become a testimony."</p>
+          </div>
+          <div class="star-row fade-in-up delay-5">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 5: From My Heart ══════ -->
+      <div class="slide slide-5" data-slide="5">
+        <div class="slide-bg-gradient slide-bg-5"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float heart-beat">❤️</div>
+          <h2 class="slide-heading fade-in-up">From My Heart</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="text-lines">
+            <p class="slide-line fade-in-up delay-1">"In short babe..."</p>
+            <p class="slide-line fade-in-up delay-2">"I simply wish you the very best."</p>
+            <p class="slide-line highlight big-highlight fade-in-up delay-3">"I love you so much."</p>
+            <p class="slide-line fade-in-up delay-4">"More than words can explain."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 6: My Prayer ══════ -->
+      <div class="slide slide-6" data-slide="6">
+        <div class="slide-bg-gradient slide-bg-6"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">✨</div>
+          <h2 class="slide-heading fade-in-up">My Prayer For You</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="text-lines">
+            <p class="slide-line fade-in-up delay-1">"I pray that this time next year..."</p>
+            <p class="slide-line fade-in-up delay-2">"You'll look back at this season of your life..."</p>
+            <p class="slide-line highlight fade-in-up delay-3">"And be filled with happiness."</p>
+            <p class="slide-line fade-in-up delay-4">"Not regrets."</p>
+          </div>
+          <div class="prayer-glow fade-in-up delay-5">🙏 Amen 🙏</div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 7: Reasons I Love You ══════ -->
+      <div class="slide slide-7" data-slide="7">
+        <div class="slide-bg-gradient slide-bg-7"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">💖</div>
+          <h2 class="slide-heading fade-in-up">Reasons I Love You</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="reasons-grid" id="reasonsGrid">
+            <div class="reason-card fade-in-up delay-1">
+              <span class="reason-icon">💪</span>
+              <span class="reason-text">Your strength</span>
+            </div>
+            <div class="reason-card fade-in-up delay-2">
+              <span class="reason-icon">😊</span>
+              <span class="reason-text">Your smile</span>
+            </div>
+            <div class="reason-card fade-in-up delay-3">
+              <span class="reason-icon">🧠</span>
+              <span class="reason-text">Your mind</span>
+            </div>
+            <div class="reason-card fade-in-up delay-4">
+              <span class="reason-icon">🌙</span>
+              <span class="reason-text">Your soul</span>
+            </div>
+            <div class="reason-card fade-in-up delay-5">
+              <span class="reason-icon">🔥</span>
+              <span class="reason-text">Your passion</span>
+            </div>
+            <div class="reason-card fade-in-up delay-6">
+              <span class="reason-icon">🕊️</span>
+              <span class="reason-text">Your heart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 8: Memory Timeline ══════ -->
+      <div class="slide slide-8" data-slide="8">
+        <div class="slide-bg-gradient slide-bg-8"></div>
+        <div class="slide-content">
+          <div class="emoji-float">🕰️</div>
+          <h2 class="slide-heading fade-in-up center-text">Our Story</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="timeline">
+            <div class="timeline-item fade-in-up delay-1">
+              <div class="timeline-dot">💫</div>
+              <div class="timeline-content">
+                <h4>The Beginning</h4>
+                <p>When our story started...</p>
+              </div>
+            </div>
+            <div class="timeline-item fade-in-up delay-2">
+              <div class="timeline-dot">❤️</div>
+              <div class="timeline-content">
+                <h4>Falling For You</h4>
+                <p>Every moment brought us closer...</p>
+              </div>
+            </div>
+            <div class="timeline-item fade-in-up delay-3">
+              <div class="timeline-dot">🌟</div>
+              <div class="timeline-content">
+                <h4>Growing Together</h4>
+                <p>Through every season, side by side...</p>
+              </div>
+            </div>
+            <div class="timeline-item fade-in-up delay-4">
+              <div class="timeline-dot">🎂</div>
+              <div class="timeline-content">
+                <h4>Today</h4>
+                <p>Celebrating YOU on your special day 💕</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 9: Photo Gallery ══════ -->
+      <div class="slide slide-9" data-slide="9">
+        <div class="slide-bg-gradient slide-bg-9"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">📸</div>
+          <h2 class="slide-heading fade-in-up">Our Gallery</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <p class="slide-sub-note fade-in-up delay-1">Our beautiful memories together</p>
+          <div class="photo-grid fade-in-up delay-2">
+            <!-- Replace src with actual photo paths: assets/images/photo1.jpg etc. -->
+            <div class="photo-frame" data-label="Memory 1">
+              <div class="photo-placeholder">
+                <span>📷</span>
+                <small>Add Photo</small>
+              </div>
+            </div>
+            <div class="photo-frame" data-label="Memory 2">
+              <div class="photo-placeholder">
+                <span>📷</span>
+                <small>Add Photo</small>
+              </div>
+            </div>
+            <div class="photo-frame featured" data-label="My Favourite">
+              <div class="photo-placeholder">
+                <span>💕</span>
+                <small>Our Best Moment</small>
+              </div>
+            </div>
+            <div class="photo-frame" data-label="Memory 3">
+              <div class="photo-placeholder">
+                <span>📷</span>
+                <small>Add Photo</small>
+              </div>
+            </div>
+            <div class="photo-frame" data-label="Memory 4">
+              <div class="photo-placeholder">
+                <span>📷</span>
+                <small>Add Photo</small>
+              </div>
+            </div>
+          </div>
+          <p class="gallery-hint fade-in-up delay-3">✨ Replace placeholders with your photos ✨</p>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 10: Final Message ══════ -->
+      <div class="slide slide-10" data-slide="10">
+        <div class="slide-bg-gradient slide-bg-10"></div>
+        <div class="slide-content center-content">
+          <div class="emoji-float">💌</div>
+          <h2 class="slide-heading fade-in-up">Final Message</h2>
+          <div class="slide-divider"><span>✦</span><span>✦</span><span>✦</span></div>
+          <div class="letter-card fade-in-up delay-1">
+            <p class="letter-to">To My Girlfriend ❤️</p>
+            <p class="letter-body">Happy Birthday Once Again.</p>
+            <br/>
+            <p class="letter-from">With Love,</p>
+            <p class="letter-from">Your Loving CSC Boyfriend</p>
+            <p class="letter-name">Adekunle</p>
+            <p class="letter-aka">aka Alex</p>
+            <p class="letter-aka tiger">aka Tiger 🐯</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ SLIDE 11: Grand Finale ══════ -->
+      <div class="slide slide-11 finale-slide" data-slide="11">
+        <div class="slide-bg-gradient slide-bg-11"></div>
+        <canvas id="fireworksCanvas"></canvas>
+        <div class="confetti-container" id="confettiContainer"></div>
+        <div class="finale-hearts" id="finaleHearts"></div>
+        <div class="slide-content center-content finale-content">
+          <div class="finale-crown">👑</div>
+          <h1 class="finale-title glow-text">Happy Birthday</h1>
+          <p class="finale-sub glow-text-soft">My Beautiful Baby 💕</p>
+          <div class="finale-divider">✦ ✦ ✦ ✦ ✦</div>
+          <p class="finale-note">From Tiger, with all his heart 🐯❤️</p>
+
+          <!-- SURPRISE BUTTON -->
+          <button class="surprise-btn" id="surpriseBtn">
+            <span class="surprise-btn-icon">❤️</span>
+            Click Me ❤️
+          </button>
+
+          <!-- SURPRISE MESSAGE (hidden) -->
+          <div class="surprise-message hidden" id="surpriseMessage">
+            <div class="surprise-inner">
+              <p>"I'll Always Be Proud Of You."</p>
+              <p>"I'll Always Love You."</p>
+              <p class="surprise-final">Happy Birthday My Baby ❤️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slides-wrapper -->
+
+    <!-- ─────── NAVIGATION ─────── -->
+    <button class="nav-btn nav-prev" id="navPrev" aria-label="Previous slide">
+      <span>‹</span>
+    </button>
+    <button class="nav-btn nav-next" id="navNext" aria-label="Next slide">
+      <span>›</span>
+    </button>
+
+    <!-- ─────── DOT NAVIGATION ─────── -->
+    <div class="dot-nav" id="dotNav"></div>
+
+    <!-- ─────── SWIPE HINT ─────── -->
+    <div class="swipe-hint" id="swipeHint">
+      <span>Swipe or tap › to begin</span>
+    </div>
+
+  </div><!-- /mainPresentation -->
+
+  <!-- AUDIO (uses free royalty-free embed fallback) -->
+  <!-- 
+    To add real music: place an MP3 at assets/music/birthday.mp3
+    and update the src below.
+  -->
+  <audio id="bgAudio" loop preload="none">
+    <source src="assets/music/birthday.mp3" type="audio/mpeg" />
+    <!-- Fallback: a gentle piano tone generated by Web Audio API in script.js -->
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
